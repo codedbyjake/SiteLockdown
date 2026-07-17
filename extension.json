@@ -1,0 +1,53 @@
+{
+  "name": "SiteLockdown",
+  "version": "1.0.0",
+  "author": "[https://github.com/codedbyjake Jake Linford]",
+  "url": "https://github.com/codedbyjake/SiteLockdown",
+  "description": "Lets staff instantly block anonymous and unconfirmed editing during a spam or vandalism attack, with no config change or restart.",
+  "license-name": "MIT",
+  "type": "other",
+
+  "manifest_version": 2,
+
+  "AutoloadNamespaces": {
+    "MediaWiki\\Extension\\SiteLockdown\\": "includes/"
+  },
+
+  "SpecialPages": {
+    "SiteLockdown": "MediaWiki\\Extension\\SiteLockdown\\SpecialSiteLockdown"
+  },
+
+  "AvailableRights": [
+    "sitelockdown",
+    "sitelockdown-exempt"
+  ],
+
+  "GroupPermissions": {
+    "sitelockdown-manager": {
+      "sitelockdown": true
+    }
+  },
+
+  "LogTypes": [
+    "sitelockdown"
+  ],
+
+  "LogActionsHandlers": {
+    "sitelockdown/*": "LogFormatter"
+  },
+
+  "Hooks": {
+    "getUserPermissionsErrors": "MediaWiki\\Extension\\SiteLockdown\\Hooks::onGetUserPermissionsErrors",
+    "LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\SiteLockdown\\Hooks::onLoadExtensionSchemaUpdates"
+  },
+
+  "MessagesDirs": {
+    "SiteLockdown": [
+      "i18n"
+    ]
+  },
+
+  "ExtensionMessagesFiles": {
+    "SiteLockdownAlias": "SiteLockdown.alias.php"
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": ["codedbyjake"]
+    },
+    "sitelockdown": "Site lockdown",
+    "right-sitelockdown": "Activate and deactivate site lockdown",
+    "right-sitelockdown-exempt": "Bypass site lockdown",
+    "action-sitelockdown": "toggle site lockdown",
+    "log-name-sitelockdown": "Site lockdown log",
+    "log-description-sitelockdown": "This log records site lockdown activations and deactivations.",
+    "logentry-sitelockdown-activate": "$1 activated site lockdown",
+    "logentry-sitelockdown-deactivate": "$1 deactivated site lockdown",
+    "sitelockdown-active": "This wiki is currently in lockdown. Editing is restricted to autoconfirmed users and above.",
+    "sitelockdown-error-token": "Your session has expired. Please try again.",
+    "sitelockdown-activated": "Lockdown activated.",
+    "sitelockdown-deactivated": "Lockdown deactivated.",
+    "sitelockdown-status-active": "'''Lockdown is active''', activated by $1 at $2.",
+    "sitelockdown-status-reason": "Reason: $1",
+    "sitelockdown-status-inactive": "Lockdown is not active.",
+    "sitelockdown-form-reason": "Reason (optional)",
+    "sitelockdown-activate-button": "Activate lockdown",
+    "sitelockdown-deactivate-button": "Deactivate lockdown"
+}

@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": ["codedbyjake"]
+    },
+    "sitelockdown": "{{doc-special|SiteLockdown}}",
+    "right-sitelockdown": "{{doc-right|sitelockdown}}",
+    "right-sitelockdown-exempt": "{{doc-right|sitelockdown-exempt}}",
+    "action-sitelockdown": "{{doc-action|sitelockdown}}",
+    "log-name-sitelockdown": "{{doc-log-name|sitelockdown}}",
+    "log-description-sitelockdown": "{{doc-log-description|sitelockdown}}",
+    "logentry-sitelockdown-activate": "{{doc-logentry|sitelockdown|activate}}\n\nParameters:\n* $1 - the performer (with tool links)\n* $2 - the performer's plain username",
+    "logentry-sitelockdown-deactivate": "{{doc-logentry|sitelockdown|deactivate}}\n\nParameters:\n* $1 - the performer (with tool links)\n* $2 - the performer's plain username",
+    "sitelockdown-active": "Permission error shown to a blocked user when they try to edit or create an account while lockdown is active.",
+    "sitelockdown-error-token": "Shown when the toggle form's edit token doesn't match.",
+    "sitelockdown-activated": "Shown after successfully activating lockdown.",
+    "sitelockdown-deactivated": "Shown after successfully deactivating lockdown.",
+    "sitelockdown-status-active": "Shown on Special:SiteLockdown when lockdown is active. $1 is who activated it, $2 is when.",
+    "sitelockdown-status-reason": "Shown below {{msg-mw|sitelockdown-status-active}} if a reason was given. $1 is the reason.",
+    "sitelockdown-status-inactive": "Shown on Special:SiteLockdown when lockdown is not active.",
+    "sitelockdown-form-reason": "Label for the optional reason field shown when activating lockdown.",
+    "sitelockdown-activate-button": "Button text to activate lockdown.",
+    "sitelockdown-deactivate-button": "Button text to deactivate lockdown."
+}
