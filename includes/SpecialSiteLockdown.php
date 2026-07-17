@@ -7,6 +7,8 @@ use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\SpecialPage;
 use OOUI\ButtonInputWidget;
+use OOUI\FieldLayout;
+use OOUI\TextInputWidget;
 
 class SpecialSiteLockdown extends SpecialPage {
 
@@ -26,6 +28,7 @@ class SpecialSiteLockdown extends SpecialPage {
         $this->setHeaders();
         $this->checkPermissions();
         $this->getOutput()->enableOOUI();
+        $this->getOutput()->addModuleStyles( [ 'ext.sitelockdown.styles' ] );
 
         if ( $this->getRequest()->wasPosted() ) {
             $this->handleSubmit();
@@ -89,14 +92,16 @@ class SpecialSiteLockdown extends SpecialPage {
             }
 
             $out->addHTML(
-                Html::openElement( 'form', [ 'method' => 'post', 'action' => $actionUrl ] ) .
+                Html::openElement( 'form', [ 'method' => 'post', 'action' => $actionUrl, 'class' => 'sitelockdown-form' ] ) .
                 Html::hidden( 'wpEditToken', $this->getUser()->getEditToken() ) .
-                ( new ButtonInputWidget( [
-                    'type' => 'submit',
-                    'name' => 'wpDeactivate',
-                    'label' => $this->msg( 'sitelockdown-deactivate-button' )->text(),
-                    'flags' => [ 'primary', 'progressive' ],
-                ] ) )->toString() .
+                Html::rawElement( 'div', [ 'class' => 'sitelockdown-actions' ],
+                    ( new ButtonInputWidget( [
+                        'type' => 'submit',
+                        'name' => 'wpDeactivate',
+                        'label' => $this->msg( 'sitelockdown-deactivate-button' )->text(),
+                        'flags' => [ 'primary', 'progressive' ],
+                    ] ) )->toString()
+                ) .
                 Html::closeElement( 'form' )
             );
             return;
@@ -104,17 +109,29 @@ class SpecialSiteLockdown extends SpecialPage {
 
         $out->addWikiMsg( 'sitelockdown-status-inactive' );
 
+        $reasonField = new FieldLayout(
+            new TextInputWidget( [
+                'name' => 'wpReason',
+                'id' => 'wpReason',
+            ] ),
+            [
+                'label' => $this->msg( 'sitelockdown-form-reason' )->text(),
+                'align' => 'top',
+            ]
+        );
+
         $out->addHTML(
-            Html::openElement( 'form', [ 'method' => 'post', 'action' => $actionUrl ] ) .
+            Html::openElement( 'form', [ 'method' => 'post', 'action' => $actionUrl, 'class' => 'sitelockdown-form' ] ) .
             Html::hidden( 'wpEditToken', $this->getUser()->getEditToken() ) .
-            Html::element( 'label', [ 'for' => 'wpReason' ], $this->msg( 'sitelockdown-form-reason' )->text() ) .
-            Html::input( 'wpReason', '', 'text', [ 'id' => 'wpReason', 'class' => 'mw-ui-input' ] ) .
-            ( new ButtonInputWidget( [
-                'type' => 'submit',
-                'name' => 'wpActivate',
-                'label' => $this->msg( 'sitelockdown-activate-button' )->text(),
-                'flags' => [ 'primary', 'destructive' ],
-            ] ) )->toString() .
+            $reasonField->toString() .
+            Html::rawElement( 'div', [ 'class' => 'sitelockdown-actions' ],
+                ( new ButtonInputWidget( [
+                    'type' => 'submit',
+                    'name' => 'wpActivate',
+                    'label' => $this->msg( 'sitelockdown-activate-button' )->text(),
+                    'flags' => [ 'primary', 'destructive' ],
+                ] ) )->toString()
+            ) .
             Html::closeElement( 'form' )
         );
     }

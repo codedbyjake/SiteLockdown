@@ -49,5 +49,15 @@
 
   "ExtensionMessagesFiles": {
     "SiteLockdownAlias": "SiteLockdown.alias.php"
+  },
+
+  "ResourceModules": {
+    "ext.sitelockdown.styles": {
+      "styles": "ext.sitelockdown.styles.less"
+    }
+  },
+  "ResourceFileModulePaths": {
+    "localBasePath": "resources",
+    "remoteExtPath": "SiteLockdown/resources"
   }
 }
