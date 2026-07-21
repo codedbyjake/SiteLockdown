@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "[https://github.com/codedbyjake Jake Linford]",
   "url": "https://github.com/codedbyjake/SiteLockdown",
-  "description": "Lets staff instantly block anonymous and unconfirmed editing during a spam or vandalism attack.",
+  "description": "Lets staff instantly restrict editing and account creation during a spam or vandalism attack.",
   "license-name": "MIT",
   "type": "other",
 
